@@ -60,8 +60,8 @@ $consulta2->execute();
                         while ($row = $consulta2->fetch()) {
                             echo "<option ";
                             if($codLiga == $row['codLiga']){ echo 'selected'; } ;
-                            echo  "> "; 
-                            echo $row['codLiga'];
+                            echo  " value=$row[codLiga] >"; 
+                            echo $row['codLiga'] . " | " . $row['nomLiga'];
                             echo '</option>';
                         }
                     ?>
@@ -76,21 +76,21 @@ $consulta2->execute();
             </div>
 
             <div class="form-row text-center">
-                <div class="form-check text-right col-6 px-3">
+                <label class="text-center col-4" for=""> Internacional</label>
+                <div class="form-check text-right col-2 px-3">
                     <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="internacional" id="internacional"
                     value="1" <?php if(intval($equipo['internacional']) == 1){ echo 'checked';} ?>>
                     SI
                   </label>
                 </div>
-                <div class="form-check text-left col-6 px-3">
+                <div class="form-check text-left col-2 px-3">
                     <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="internacional" id="internacional"
                     value="0" <?php if(intval($equipo['internacional']) == 0){ echo 'checked';} ?>>
                     NO
                   </label>
-                </div>
-                
+                </div> 
             </div>
 
             <div class="p-3">

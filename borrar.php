@@ -22,20 +22,25 @@
     <div class="container p-4 text-center">
         <h2>Alberto Barroso Carrillo</h2>
         <h3>Borrar un equipo</h3>
-        <h5> ¿De verdad quieres borrar este equipo? </h5>
+        <h5 class="py-4"> ¿De verdad quieres borrar este equipo? </h5>
 
+        <ul class="list-group">
         <?php
             $consulta = $pdo->prepare("SELECT * FROM equipos WHERE codEquipo = $codEquipo");
             $consulta->execute();
     
     
             $equipo = $consulta->fetchAll()[0];
-            echo $equipo['codEquipo'] . ' | ' . $equipo['nomEquipo'] .  ' | ' . $equipo['codLiga'] . ' | ' . $equipo['localidad'] . ' | ' . $equipo['internacional'];
-            
+            echo "<li class='list-group-item'> <strong>Cod equipo:</strong> " . $equipo['codEquipo'] . "</li>";
+            echo "<li class='list-group-item'> <strong>Nombre equipo:</strong> " . $equipo['nomEquipo'] . "</li>";
+            echo "<li class='list-group-item'> <strong>Codigo liga:</strong> " . $equipo['codLiga'] . "</li>";
+            echo "<li class='list-group-item'> <strong>Localidad:</strong> " . $equipo['localidad'] . "</li>";
+            echo "<li class='list-group-item'> <strong>Internacional:</strong> " . $equipo['internacional'] . "</li>";
         ?>
+        </ul>
 
         <form class="py-3" action="/AED-EquiposFutbol/borrar_equipo.php" method="POST">
-            <input type="text" name="codEquipo" id="codEquipo" value="<?php echo $_POST['codEquipo']; ?>" readonly>
+            <input type="hidden" name="codEquipo" id="codEquipo" value="<?php echo $_POST['codEquipo']; ?>" readonly>
             <button class="btn btn-danger" type="submit">BORRAR</button>
             <a href="/AED-EquiposFutbol/equipos.php" class="btn btn-secondary">Cancelar</a>
         </form>
