@@ -40,7 +40,7 @@ $consulta2->execute();
                 <select class="form-control col-6" name="codLiga" id="codLiga">
                     <?php
                     while ($row = $consulta2->fetch()) {
-                        echo "<option>";
+                        echo "<option value=$row[codLiga]>";
                         echo $row['codLiga'] . " | " . $row['nomLiga'];
                         echo '</option>';
                     }
