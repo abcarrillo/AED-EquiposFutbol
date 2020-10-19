@@ -35,7 +35,10 @@
             echo "<li class='list-group-item'> <strong>Nombre equipo:</strong> " . $equipo['nomEquipo'] . "</li>";
             echo "<li class='list-group-item'> <strong>Codigo liga:</strong> " . $equipo['codLiga'] . "</li>";
             echo "<li class='list-group-item'> <strong>Localidad:</strong> " . $equipo['localidad'] . "</li>";
-            echo "<li class='list-group-item'> <strong>Internacional:</strong> " . $equipo['internacional'] . "</li>";
+            echo "<li class='list-group-item'> <strong>Internacional:</strong> ";
+            if($equipo['internacional'] == "1"){ echo "SI";} else{ echo "NO";} ; 
+             
+            echo "</li>";
         ?>
         </ul>
 
